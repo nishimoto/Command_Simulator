@@ -1,0 +1,5 @@
+@prompt = '> ';
+> ls,"aaa.txt bbb.txt ccc.txt
+ddd.txt eee.txt fff.txt",""
+> cli,"OK,I'll Change to cli mode",@prompt = '# '; @cli_flag = true
+# set date Time.zone.now,OK!!,"",@cli_flag

@@ -1,0 +1,7 @@
+"@prompt='>';@default_error_output='Error'","","",""
+"ls","aaa.txt bbb.txt ccc.txt
+ddd.txt eee.txt fff.txt","",""
+"cli","OK,I'll Change to cli mode","@prompt='#'; @flag_cli = true",""
+"set date Time.zone.now","OK!!","","@flag_cli"
+"exit","change to normal mode","@prompt='>'; @flag_cli = false",""
+"ls","this string is output if you are in cli_mode","","@flag_cli"

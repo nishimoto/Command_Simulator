@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>コマンドシミュレーター用ページ</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function grep () {
+			var text = document.fm.step1_1.value;
+			var str  = document.fm.step1_2.value;
+			var arr  = text.split("\n");
+			var temp_arr = [];
+			var head     = "^";
+
+			if (str.indexOf("\n")) {
+				var str_arr = str.split("\n");
+			} else {
+				var str_arr = [str];
+			}
+
+			for (var j = 0; j < str_arr.length; j++) {
+				var str = str_arr[j];
+				var reg_str  = head + str
+				var reg      = new RegExp(reg_str)
+
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i].match(reg)) {
+						temp_arr.push(arr[i]);
+					};
+				};
+			}
+			document.getElementById('step2').innerText = temp_arr.join("\n")
+		}
+	</script>
+
+	<h2>コマンドシミュレーター作成用ページ</h2>
+	<p>INOSタームのログから作ります</p>
+	<form name="fm" action="" method="post" accept-charset="utf-8">
+		<ul>
+			<hr>
+				<li>Step1.1:INOSタームのログ</li>
+				<textarea name="step1_1" placeholder="INOSタームのログを貼り付けてください" rows="10" cols="60" wrap="soft" accesskey="s"></textarea>
+				<li>Step1.2:プロンプトの文</li>
+				<textarea name="step1_2" placeholder="プロンプトを貼り付けてください(複数プロンプトがある場合は、複数行にわけて貼ってください。)" rows="5" cols="60" wrap="soft" accesskey="s"></textarea>
+				<input type="submit" value="Step1:打ったコマンドを探索する" onclick="grep();return false;">
+			<hr>
+				<li>Step2:打ったコマンドの行が表示されます<br>関係ない行が表示されていたら除いて下さい</li>
+				<textarea id="step2" placeholder="打ったコマンドが生成されます" rows="10" cols="60" wrap="soft" accesskey="s"></textarea>
+				<input type="submit" value="Step2:プレビューを作成する" onclick="step2()">
+			<hr>
+		</ul>
+	</form>
+
+	<script type="text/javascript" charset="utf-8">
+	</script>
+
+</body>
+</html>

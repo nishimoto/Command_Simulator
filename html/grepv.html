@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>grep</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function grep () {
+			var text = document.fm.input.value;
+
+			console.log(text);
+
+			var str  = document.fm.str.value;
+			var arr  = text.split("\n");
+			var temp_arr = [];
+
+			for (var i = 0; i < arr.length; i++) {
+				console.log(arr[i]);
+				console.log(str);
+				console.log(arr[i].indexOf(str));
+				if (arr[i].indexOf(str)) {
+					temp_arr.push(arr[i]);
+				};
+			};
+
+			console.log(temp_arr);
+
+			document.getElementById('output').innerText = temp_arr.join("\n")
+
+		}
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="./css/style.nishimoto.css">
+
+	<div class="center">
+		<h1>grepv</h1>
+		<a href="grep.html">grep.html</a>の逆バージョン
+
+		<form name="fm">
+			<ul>
+				<li><textarea id="input" onchange="grep()" rows="10" cols="64" placeholder="grepされる文字"></textarea></li>
+				<li><input id="str"  onchange="grep()" placeholder="grepする文字"></li>
+				<li><input type="submit" value="grep" onclick="grep();return false;"></li>
+				<li><textarea id="output" rows="10" cols="64" placeholder="結果"></textarea></li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>

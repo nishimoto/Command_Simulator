@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>コマンドシミュレーター用ページ</title>
+</head>
+<body>
+	<h2>コマンドシミュレーター作成用ページ</h2>
+	<p>	<a href="./index.html">トップへ戻る</a></p>
+	<p>1行1行手動で追加する方式です <input type="submit" value="行の追加" onclick="add_textarea()"> </p>
+
+	<hr style="width:50%; float:left"><br>
+	<p>説明</p>
+	<ul>
+		<li>3列目 → セットするフラグを入れてください。</li>
+		<ul>
+			<li>変数の前に@を入れること</li>
+			<li>複数セットする場合は;(セミコロン)で区切ること</li>
+		</ul>
+		<li>4列目 → 必要なフラグを入れてください。</li>
+		<ul>
+			<li>複数必要な場合は && で区切ってください</li>
+		</ul>
+	</ul>
+	<hr style="width:50%; float:left"><br>
+
+	<form action="./src/made_by_html.rb" method="get" accept-charset="utf-8">
+		<input placeholder="プロンプトとエラー用文章">
+		<div id="table">
+
+			<textarea name="command_1" placeholder="コマンド"></textarea>
+			<textarea name="result_1" placeholder="コマンド結果"></textarea>
+			<textarea name="setflag_1" placeholder="セットするフラグ"></textarea>
+			<textarea name="needflag_1" placeholder="必要なフラグ"></textarea>
+			<br>
+
+		</div>
+
+		<input type="submit" value="プレビュー" onclick="make_previrew()">
+
+	</form>
+
+	<script type="text/javascript" charset="utf-8">
+		function add_textarea () {
+			var line = '<textarea name="command_1" placeholder="コマンド"></textarea> <textarea name="result_1" placeholder="コマンド結果"> </textarea> <textarea name="setflag_1" placeholder="セットするフラグ"></textarea> <textarea name="needflag_1" placeholder="必要なフラグ"></textarea><br>';
+			var div = document.getElementById('table');
+			div.innerHTML += line;
+		}
+
+		function make_previrew () {
+			alert("まだ作ってないんや…");
+		}
+
+	</script>
+
+</body>
+</html>
